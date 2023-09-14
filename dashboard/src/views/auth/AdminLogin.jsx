@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import logo from "../../../public/images/logo_transparent.png";
+import { adminLogin } from "../../store/Reducers/authReducer";
 const AdminLogin = () => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -16,7 +19,8 @@ const AdminLogin = () => {
   const submit = (e) => {
     e.preventDefault();
 
-    console.log(state);
+    // console.log(state);
+    dispatch(adminLogin(state));
   };
 
   return (
