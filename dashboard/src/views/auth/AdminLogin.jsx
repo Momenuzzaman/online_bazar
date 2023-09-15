@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { PropagateLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../../../public/images/logo_transparent.png";
-import { adminLogin } from "../../store/Reducers/authReducer";
+import { adminLogin, messageClear } from "../../store/Reducers/authReducer";
 const AdminLogin = () => {
+  const navigate = useNavigate();
+  const { loader, errorMessage, successMessage } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
   const [state, setState] = useState({
     email: "",
@@ -22,6 +29,28 @@ const AdminLogin = () => {
     // console.log(state);
     dispatch(adminLogin(state));
   };
+
+  //  login button loading style
+  const overrideStyle = {
+    display: "flex",
+    margin: "0 auto",
+    height: "24px",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  // clear notification
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+      navigate("/");
+    }
+  }, [errorMessage, successMessage]);
 
   return (
     <div className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
@@ -60,8 +89,15 @@ const AdminLogin = () => {
               />
             </div>
 
-            <button className="bg-blue-500 w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3 mt-3">
-              Login in
+            <button
+              disabled={loader ? true : false}
+              className="bg-blue-500 w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3 mt-3"
+            >
+              {loader ? (
+                <PropagateLoader color="#fff" cssOverride={overrideStyle} />
+              ) : (
+                "Login"
+              )}
             </button>
           </form>
         </div>

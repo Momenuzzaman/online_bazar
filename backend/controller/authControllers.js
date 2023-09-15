@@ -2,6 +2,7 @@ const adminModel = require("../models/adminModel");
 const { responseReturn } = require("../utils/response");
 const bcrypt = require("bcrypt");
 const { tokenCreate } = require("../utils/tokenCreate");
+
 class authControllers {
   admin_login = async (req, res) => {
     const { email, password } = req.body;
@@ -24,7 +25,7 @@ class authControllers {
           });
           responseReturn(res, 200, { token, message: "Login successful" });
         } else {
-          responseReturn(res, 400, { error: "password wrong." });
+          responseReturn(res, 400, { error: "Your password is incorrect." });
         }
       } else {
         responseReturn(res, 400, { error: "Email not found." });
