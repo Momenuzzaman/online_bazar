@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const { tokenCreate } = require("../utils/tokenCreate");
 
 class authControllers {
+  // admin login
   admin_login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -32,6 +33,21 @@ class authControllers {
       }
     } catch (error) {
       responseReturn(res, 500, { error: error.message });
+    }
+  };
+
+  // get user
+  getUser = async (req, res) => {
+    const { id, roll } = req;
+    try {
+      if (roll === "admin") {
+        const user = await adminModel.findById(id);
+        responseReturn(res, 200, { userInfo: user });
+      } else {
+        console.log("sellerInfo");
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
 }
