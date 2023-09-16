@@ -3,6 +3,9 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { RiProductHuntLine } from "react-icons/ri";
 import Chart from "react-apexcharts";
+import { Link } from "react-router-dom";
+
+import adminImg from "../../images/admin.jpg";
 const adminDashboard = () => {
   const state = {
     series: [
@@ -134,13 +137,157 @@ const adminDashboard = () => {
       </div>
       {/* end */}
       <div className="w-full flex flex-wrap mt-7">
+        {/* chart */}
         <div className="w-full lg:w-7/12 lg:pr-3">
-          <Chart
-            options={state.options}
-            series={state.series}
-            type="bar"
-            height={350}
-          />
+          <div className="w-full bg-[#283046] p-4 rounded-md">
+            <Chart
+              options={state.options}
+              series={state.series}
+              type="bar"
+              height={350}
+            />
+          </div>
+        </div>
+        {/* message */}
+        <div className="w-full lg:w-5/12 mt-6 lg:mt-0">
+          <div className="w-full bg-[#283046] p-4 rounded-md text-[#d0d2d6]">
+            <div className="flex justify-between items-center">
+              <h2 className="font-semibold text-lg text-[#d0d2d6] pb-1">
+                Recent seller message
+              </h2>
+              <Link className="font-semibold text-sm text-[#d0d2d6] pb-1">
+                View All{" "}
+              </Link>
+            </div>
+            {/* message content */}
+            <div className="flex flex-col gap-2 pt-6 text-[#d0d2d6]">
+              <ol className="relative border-1 border-slate-600 ml-4">
+                <li className="mb-3 ml-6">
+                  <div className="flex absolute shadow-lg justify-center -left-5 items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
+                    <img
+                      className="w-full rounded-full h-full shadow-lg"
+                      src={adminImg}
+                    />
+                  </div>
+                  <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <Link className="text-md font-normal">Admin</Link>
+                      <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
+                        4 day ago
+                      </time>
+                    </div>
+                    <div className="p-2 bg-slate-700 text-xs font-normal border border-slate-800">
+                      how are you?
+                    </div>
+                  </div>
+                </li>
+                <li className="mb-3 ml-6">
+                  <div className="flex absolute shadow-lg justify-center -left-5 items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
+                    <img
+                      className="w-full rounded-full h-full shadow-lg"
+                      src={adminImg}
+                    />
+                  </div>
+                  <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <Link className="text-md font-normal">Admin</Link>
+                      <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
+                        4 day ago
+                      </time>
+                    </div>
+                    <div className="p-2 bg-slate-700 text-xs font-normal border border-slate-800">
+                      how are you?
+                    </div>
+                  </div>
+                </li>
+                <li className="mb-3 ml-6">
+                  <div className="flex absolute shadow-lg justify-center -left-5 items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
+                    <img
+                      className="w-full rounded-full h-full shadow-lg"
+                      src={adminImg}
+                    />
+                  </div>
+                  <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
+                    <div className="flex justify-between items-center mb-2">
+                      <Link className="text-md font-normal">Admin</Link>
+                      <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
+                        4 day ago
+                      </time>
+                    </div>
+                    <div className="p-2 bg-slate-700 text-xs font-normal border border-slate-800">
+                      how are you?
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/*  */}
+      <div className="w-full p-4  bg-[#283046] rounded-md mt-6">
+        <div className="flex justify-between items-center">
+          <h2 className="font-semibold text-lg text-[#d0d2d6] pb-3">
+            Recent Orders
+          </h2>
+          <Link className="font-semibold text-sm text-[#d0d2d6]">View All</Link>
+        </div>
+        <div className="relative overflow-x-auto">
+          <table className="w-full text-sm text-left text-[#d0d2d6]">
+            <thead className="text-sm text-[#d0d2d6] uppercase border-b border-slate-700">
+              <tr>
+                <th scope="col" className="py-3 px-4">
+                  Order Id
+                </th>
+                <th scope="col" className="py-3 px-4">
+                  Price
+                </th>
+                <th scope="col" className="py-3 px-4">
+                  Payment Status
+                </th>
+                <th scope="col" className="py-3 px-4">
+                  Order Status
+                </th>
+                <th scope="col" className="py-3 px-4">
+                  Active
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  scope="row"
+                  className="py-3 px-4 font-medium whitespace-nowrap"
+                >
+                  Id
+                </td>
+                <td
+                  scope="row"
+                  className="py-3 px-4 font-medium whitespace-nowrap"
+                >
+                  Price
+                </td>
+                <td
+                  scope="row"
+                  className="py-3 px-4 font-medium whitespace-nowrap"
+                >
+                  <span>dalivary</span>
+                </td>
+                <td
+                  scope="row"
+                  className="py-3 px-4 font-medium whitespace-nowrap"
+                >
+                  <span>Payment</span>
+                </td>
+                <td
+                  scope="row"
+                  className="py-3 px-4 font-medium whitespace-nowrap"
+                >
+                  <Link to={`/admin/dashboard/order/details`}>view</Link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { FaList } from "react-icons/fa";
-import adminImg from "../../public/images/admin.jpg";
+import adminImg from "../../src/images/admin.jpg";
 const Header = ({ showSidebar, setShowSidebar }) => {
   return (
     <div className="fixed top-0 left-0 w-full py-5 px-2 lg:px-7 z-40">

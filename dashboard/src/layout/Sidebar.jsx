@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../public/images/logo_transparent.png";
+import logo from "../../src/images/logo_transparent.png";
 import { useEffect, useState } from "react";
 import { getNavs } from "../navigation";
 import { BiLogInCircle } from "react-icons/bi";
