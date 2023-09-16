@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     setAllRoutes([...allRoutes, routes]);
   }, []);
-  console.log(allRoutes);
 
   return <Router allRoutes={allRoutes} />;
 }
