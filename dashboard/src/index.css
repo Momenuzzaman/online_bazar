@@ -4,7 +4,6 @@
 
 @layer components {
   /* Register and Loading style */
-
   .input-parent {
     @apply flex flex-col w-full gap-1 mb-3;
   }
