@@ -2,7 +2,8 @@ import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { BsImage } from "react-icons/bs";
-
+import { GrClose } from "react-icons/gr";
+import { RxCross1 } from "react-icons/rx";
 import img from "../../images/seller.png";
 import Pagination from "../Pagination";
 const Category = () => {
@@ -13,6 +14,15 @@ const Category = () => {
   const [show, setShow] = useState(false);
   return (
     <div className="px-2 lg:px-7  pt-5">
+      <div className="flex lg:hidden justify-between items-center mb-5 p-4 bg-[#283046] rounded-md">
+        <h1 className="text-[#d0d2d6] font-semibold text-lg">Categorys</h1>
+        <button
+          onClick={() => setShow(true)}
+          className="bg-indigo-500 shadow-lg hover:shadow-indigo-500/50 px-4 py-2 cursor-pointer text-white rounded-sm text-sm"
+        >
+          Add
+        </button>
+      </div>
       <div className="flex flex-wrap w-full">
         {/*  left*/}
         <div className="w-full lg:w-7/12">
@@ -107,9 +117,17 @@ const Category = () => {
         >
           <div className="w-full pl-5">
             <div className=" bg-bg_primary h-screen lg:h-auto px-3 py-2 lg:rounded-md text-text_primary">
-              <h1 className="text-text_primary font-semibold text-xl mb-4 w-full text-center">
-                Add Category
-              </h1>
+              <div className="flex justify-between items-center text-text_primary mb-4 ">
+                <h1 className="text-text_primary font-semibold text-xl ">
+                  Add Category
+                </h1>
+                <div
+                  onClick={() => setShow(false)}
+                  className="block lg:hidden cursor-pointer "
+                >
+                  <RxCross1 className="text-text_primary hover:text-red-400 font-semibold text-xl" />
+                </div>
+              </div>
               <form>
                 <div className="flex flex-col w-full gap-1 mb-3">
                   <label htmlFor="name">Category name</label>

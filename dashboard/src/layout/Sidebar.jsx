@@ -27,7 +27,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
       <div
         className={`w-[260px] fixed bg-[#283046] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${
           showSidebar ? "left-0" : "-left-[260px] lg:left-0"
-        }`}
+        }  translate-x-100 transition-all duration-500`}
       >
         <div className="h-[90px] flex justify-center items-center">
           <Link to="/" className="w-[180px] h-[70px]">

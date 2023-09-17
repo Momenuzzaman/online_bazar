@@ -6,7 +6,7 @@ const Header = ({ showSidebar, setShowSidebar }) => {
       <div className="ml-0 lg:ml-[260px] rounded-md h-[65px] flex justify-between items-center  bg-[#283046] text-[#d0d2d6] px-5 transition-all">
         <div
           onClick={() => setShowSidebar(!showSidebar)}
-          className="w-[35px] flex items-center justify-center lg:hidden h-[35px] cursor-pointer rounded-sm  bg-indigo-500 shadow-lg hover:shadow-indigo-500/50"
+          className="w-[35px] flex items-center justify-center sm:mr-3   lg:hidden h-[35px] cursor-pointer rounded-sm  bg-indigo-500 shadow-lg hover:shadow-indigo-500/50"
         >
           <span>
             <FaList />
