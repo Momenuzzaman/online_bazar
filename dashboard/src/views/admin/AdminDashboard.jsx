@@ -139,7 +139,7 @@ const adminDashboard = () => {
       <div className="w-full flex flex-wrap mt-7">
         {/* chart */}
         <div className="w-full lg:w-7/12 lg:pr-3">
-          <div className="w-full bg-[#283046] p-4 rounded-md">
+          <div className="w-full bg-bg_primary p-4 rounded-md">
             <Chart
               options={state.options}
               series={state.series}
