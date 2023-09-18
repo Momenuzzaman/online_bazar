@@ -88,7 +88,7 @@ const SellerRequest = () => {
                 >
                   <div className="flex justify-start items-center gap-4">
                     <Link
-                      to={`/admin/dashboard/seller/details`}
+                      to={`/admin/dashboard/seller/details/1`}
                       className="p-[6px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50"
                     >
                       <FaEye />
