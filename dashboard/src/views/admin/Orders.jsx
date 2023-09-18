@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
+import { FaEdit, FaTrash } from "react-icons/fa";
 const Orders = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [parPage, setParPage] = useState(5);
@@ -26,58 +27,62 @@ const Orders = () => {
           />
         </div>
         {/* title */}
-        <div className="relative mt-5 overflow-x-auto">
-          <div className="w-full text-sm text-left text-text_primary">
-            <div className="text-sm text-text_primary uppercase  border-b border-slate-700">
-              <div className="flex justify-between items-start">
-                <div className="py-3 w-[25%]">Order Id</div>
-                <div className="py-3 w-[13%]">Price</div>
-                <div className="py-3 w-[18%]">Payment Status</div>
-                <div className="py-3 w-[18%]">Order Status</div>
-                <div className="py-3 w-[18%]">Action</div>
-                <div className="py-3 w-[8%]">
-                  <MdKeyboardArrowDown />
+        <div className="w-full">
+          <div className="w-full relative mt-5 overflow-x-auto">
+            <div className="w-full relative text-sm text-left text-text_primary min-w-[680px]">
+              <div className="text-sm text-text_primary uppercase  border-b border-slate-700">
+                <div className="flex justify-between items-start">
+                  <div className="py-3 w-[25%]">Order Id</div>
+                  <div className="py-3 w-[13%]">Price</div>
+                  <div className="py-3 w-[18%]">Payment Status</div>
+                  <div className="py-3 w-[18%]">Order Status</div>
+                  <div className="py-3 w-[18%]">Action</div>
+                  <div className="py-3 w-[8%]">
+                    <MdKeyboardArrowDown />
+                  </div>
                 </div>
               </div>
-            </div>
-            {/*  */}
-            <div>
-              <div className="flex justify-between items-start  border-b border-slate-700">
-                <div className="py-4 w-[25%] font-medium whitespace-nowrap">
-                  11111111111111111
-                </div>
-                <div className="py-4 w-[13%]">11</div>
-                <div className="py-4 w-[18%]">pending</div>
-                <div className="py-4 w-[18%]">pending</div>
-                <div className="py-4 w-[18%]">
-                  <Link to={`/admin/dashboard/order/details`}>view</Link>
+              {/*  */}
+              <div>
+                <div className=" flex justify-between items-start  border-b border-slate-700">
+                  <div className="py-4 w-[25%] font-medium ">
+                    11111111111111111
+                  </div>
+                  <div className="py-4 w-[13%]">11</div>
+                  <div className="py-4 w-[18%]">pending</div>
+                  <div className="py-4 w-[18%]">pending</div>
+                  <div className="py-4 w-[18%]">
+                    <Link to={`/admin/dashboard/order/details`}>view</Link>
+                  </div>
+                  <div
+                    onClick={() => setShow(!show)}
+                    className="py-4 cursor-pointer w-[8%]"
+                  >
+                    <MdKeyboardArrowDown />
+                  </div>
                 </div>
                 <div
-                  onClick={() => setShow(!show)}
-                  className="py-4 cursor-pointer w-[8%]"
+                  className={
+                    show
+                      ? "block border-b border-slate-700 bg-slate-800"
+                      : "hidden"
+                  }
                 >
-                  <MdKeyboardArrowDown />
-                </div>
-              </div>
-              <div
-                className={
-                  show
-                    ? "block border-b border-slate-700 bg-slate-800"
-                    : "hidden"
-                }
-              >
-                <div className="flex justify-start items-start border-b border-slate-700">
-                  <div className="py-4 w-[25%] font-medium whitespace-nowrap pl-3">
-                    123456789
+                  <div className="flex justify-start items-start border-b border-slate-700">
+                    <div className="py-4 w-[25%] font-medium whitespace-nowrap pl-3">
+                      123456789
+                    </div>
+                    <div className="py-4 w-[13%]">10</div>
+                    <div className="py-4 w-[18%]">pending</div>
+                    <div className="py-4 w-[18%]">pending</div>
                   </div>
-                  <div className="py-4 w-[13%]">10</div>
-                  <div className="py-4 w-[18%]">pending</div>
-                  <div className="py-4 w-[18%]">pending</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        {/* demo */}
+
         {/* pagination */}
         <div className="w-full flex justify-end mt-4 bottom-4 right-4">
           <Pagination

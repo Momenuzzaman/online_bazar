@@ -3,7 +3,7 @@ import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
 import img from "../../images/admin.jpg";
-const Sellers = () => {
+const DeactivateSellers = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [parPage, setParPage] = useState(5);
@@ -36,19 +36,13 @@ const Sellers = () => {
                   Name
                 </th>
                 <th scope="col" className="py-3 px-4">
-                  Shop Name
+                  Email
                 </th>
                 <th scope="col" className="py-3 px-4">
                   Payment Status
                 </th>
                 <th scope="col" className="py-3 px-4">
-                  Email
-                </th>
-                <th scope="col" className="py-3 px-4">
-                  Devision
-                </th>
-                <th scope="col" className="py-3 px-4">
-                  District
+                  Status
                 </th>
                 <th scope="col" className="py-3 px-4">
                   Action
@@ -79,7 +73,7 @@ const Sellers = () => {
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
                 >
-                  <span>shopName</span>
+                  <span>abc@gmail.com</span>
                 </td>
                 <td
                   scope="row"
@@ -91,20 +85,9 @@ const Sellers = () => {
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
                 >
-                  <span>email</span>
+                  <span>deactivate</span>
                 </td>
-                <td
-                  scope="row"
-                  className="py-1 px-4 font-medium whitespace-nowrap"
-                >
-                  <span>division</span>
-                </td>
-                <td
-                  scope="row"
-                  className="py-1 px-4 font-medium whitespace-nowrap"
-                >
-                  <span>district</span>
-                </td>
+
                 <td
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
@@ -137,4 +120,4 @@ const Sellers = () => {
   );
 };
 
-export default Sellers;
+export default DeactivateSellers;

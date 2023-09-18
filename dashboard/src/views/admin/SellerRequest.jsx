@@ -2,11 +2,12 @@ import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination";
-import img from "../../images/admin.jpg";
-const Sellers = () => {
+
+const SellerRequest = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState("");
   const [parPage, setParPage] = useState(5);
+
   return (
     <div className="px-2 lg:px-7 pt-5">
       <div className="w-full p-4  bg-[#283046] rounded-md">
@@ -29,26 +30,18 @@ const Sellers = () => {
                 <th scope="col" className="py-3 px-4">
                   No
                 </th>
-                <th scope="col" className="py-3 px-4">
-                  Image
-                </th>
+
                 <th scope="col" className="py-3 px-4">
                   Name
-                </th>
-                <th scope="col" className="py-3 px-4">
-                  Shop Name
-                </th>
-                <th scope="col" className="py-3 px-4">
-                  Payment Status
                 </th>
                 <th scope="col" className="py-3 px-4">
                   Email
                 </th>
                 <th scope="col" className="py-3 px-4">
-                  Devision
+                  Payment Status
                 </th>
                 <th scope="col" className="py-3 px-4">
-                  District
+                  Status
                 </th>
                 <th scope="col" className="py-3 px-4">
                   Action
@@ -63,12 +56,7 @@ const Sellers = () => {
                 >
                   +
                 </td>
-                <td
-                  scope="row"
-                  className="py-1 px-4 font-medium whitespace-nowrap"
-                >
-                  <img className="w-[45px] h-[45px]" src={img} alt="" />
-                </td>
+
                 <td
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
@@ -79,7 +67,7 @@ const Sellers = () => {
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
                 >
-                  <span>shopName</span>
+                  <span>abc@gmail.com</span>
                 </td>
                 <td
                   scope="row"
@@ -91,20 +79,9 @@ const Sellers = () => {
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
                 >
-                  <span>email</span>
+                  <span>deactivate</span>
                 </td>
-                <td
-                  scope="row"
-                  className="py-1 px-4 font-medium whitespace-nowrap"
-                >
-                  <span>division</span>
-                </td>
-                <td
-                  scope="row"
-                  className="py-1 px-4 font-medium whitespace-nowrap"
-                >
-                  <span>district</span>
-                </td>
+
                 <td
                   scope="row"
                   className="py-1 px-4 font-medium whitespace-nowrap"
@@ -137,4 +114,4 @@ const Sellers = () => {
   );
 };
 
-export default Sellers;
+export default SellerRequest;
