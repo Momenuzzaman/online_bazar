@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 @layer components {
-  /* Register and Loading style */
+  /* page */
+  .page_body {
+    @apply px-3 lg:px-7 pt-5;
+  }
+  .page_container {
+    @apply w-full bg-bg_primary p-4 rounded-md;
+  }
+
+  /* Register , Login style  admin login page*/
   .input-parent {
     @apply flex flex-col w-full gap-1 mb-3;
   }
@@ -15,4 +23,9 @@
     @apply w-[35px] h-[35px] flex rounded-md shadow-lg justify-center cursor-pointer items-center overflow-hidden;
   }
   /* end */
+
+  /* payment request page*/
+  .payment_title {
+    @apply w-[25%] p-2;
+  }
 }
