@@ -2,9 +2,9 @@ import img from "../../images/admin.jpg";
 const SellersDetail = () => {
   return (
     <div>
-      <div className="px-2 lg:px-7 pt-5">
-        <div className="w-full p-4  bg-[#283046] rounded-md">
-          <div className="w-full flex flex-wrap text-[#d0d2d6]">
+      <div className="page_body">
+        <div className="page_container">
+          <div className="w-full flex flex-wrap text-text_primary">
             <div className="w-full md:w-3/12 flex justify-center items-center py-3 ">
               <div>
                 <img className="w-full h-[230px] rounded-md" src={img} alt="" />
@@ -69,7 +69,7 @@ const SellersDetail = () => {
             <form>
               <div className="flex gap-4 py-3">
                 <select
-                  className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-[#d0d2d6]"
+                  className="px-4 py-2 focus:border-indigo-500 outline-none bg-[#283046] border border-slate-700 rounded-md text-text_primary"
                   name=""
                   required
                   id=""
