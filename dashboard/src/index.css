@@ -25,7 +25,4 @@
   /* end */
 
   /* payment request page*/
-  .payment_title {
-    @apply w-[25%] p-2;
-  }
 }
