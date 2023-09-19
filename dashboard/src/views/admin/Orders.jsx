@@ -52,7 +52,12 @@ const Orders = () => {
                   <div className="py-4 w-[18%]">pending</div>
                   <div className="py-4 w-[18%]">pending</div>
                   <div className="py-4 w-[18%]">
-                    <Link to={`/admin/dashboard/order/details`}>view</Link>
+                    <Link
+                      className="bg-blue-400 py-1 px-2 rounded-md hover:bg-indigo-500 font-medium"
+                      to={`/admin/dashboard/order/details/1`}
+                    >
+                      view
+                    </Link>
                   </div>
                   <div
                     onClick={() => setShow(!show)}
