@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import img from "../../images/admin.jpg";
 import { FaList } from "react-icons/fa";
-const ChatSeller = () => {
+const SellerToCustomer = () => {
   const [show, setShow] = useState(false);
   const sellerId = 1;
   return (
@@ -14,9 +14,9 @@ const ChatSeller = () => {
               show ? "-left-[16px]" : "-left-[336px]"
             } md:left-0 md:relative transition-all  duration-500`}
           >
-            <div className="w-full h-[calc(100vh-165px)] bg-bg_secondary md:bg-transparent overflow-y-auto">
+            <div className="w-full h-[calc(100vh-156px)] bg-bg_secondary md:bg-transparent overflow-y-auto rounded-lg">
               <div className="flex text-xl justify-between items-center p-4 md:p-0 md:px-3 md:pb-3 text-white">
-                <h2>Sellers</h2>
+                <h2>Customer</h2>
                 <span
                   onClick={() => setShow(false)}
                   className="block cursor-pointer md:hidden"
@@ -89,7 +89,7 @@ const ChatSeller = () => {
                     />
                     <div className="w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0"></div>
                   </div>
-                  <span className="text-white">currentSeller?.name</span>
+                  <span className="text-white">Emon</span>
                 </div>
               )}
               <div
@@ -155,4 +155,4 @@ const ChatSeller = () => {
   );
 };
 
-export default ChatSeller;
+export default SellerToCustomer;

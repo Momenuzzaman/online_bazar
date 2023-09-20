@@ -17,6 +17,14 @@ const DiscountProduct = lazy(() =>
 const Orders = lazy(() => import("../../views/seller/Orders"));
 
 const Payment = lazy(() => import("../../views/seller/Payment"));
+
+const SellerToAdmin = lazy(() => import("../../views/seller/SellerToAdmin"));
+
+const SellerToCustomer = lazy(() =>
+  import("../../views/seller/SellerToCustomer")
+);
+
+const Profile = lazy(() => import("../../views/seller/Profile.jsx"));
 export const sellerRoutes = [
   {
     path: "/",
@@ -53,10 +61,35 @@ export const sellerRoutes = [
     element: <Orders />,
     role: "seller",
     status: "active",
+    visibility: ["active", "deactive"],
   },
   {
     path: "/seller/dashboard/payments",
     element: <Payment />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-support",
+    element: <SellerToAdmin />,
+    role: "seller",
+    visibility: ["active", "deactive", "pending"],
+  },
+  {
+    path: "/seller/dashboard/chat-customer/:customerId",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/chat-customer",
+    element: <SellerToCustomer />,
+    role: "seller",
+    status: "active",
+  },
+  {
+    path: "/seller/dashboard/profile",
+    element: <Profile />,
     role: "seller",
     status: "active",
   },
