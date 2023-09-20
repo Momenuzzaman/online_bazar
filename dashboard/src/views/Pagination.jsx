@@ -42,7 +42,7 @@ const Pagination = ({
   };
 
   return (
-    <ul className="flex gap-3 select-none">
+    <ul className="flex gap-3">
       {pageNumber > 1 && (
         <li
           onClick={() => setPageNumber(pageNumber - 1)}

@@ -31,18 +31,18 @@ const PaymentRequest = () => {
   };
 
   return (
-    <div className="page_body">
-      <div className="page_container text-text_primary">
-        <h2 className=" text-xl font-medium pb-5">Withdrawal Request</h2>
+    <div className="px-2 lg:px-7 pt-5">
+      <div className="w-full p-4  bg-[#283046] rounded-md text-[#d0d2d6]">
+        <h2 className="text-xl font-medium pb-5">Withdrawal request</h2>
         <div className="w-full">
-          <div className="w-full overflow-x-auto ">
-            <div className="min-w-[420px]">
-              <div className="bg-[#161d31] uppercase text-xs  flex">
-                <div className="payment_title">No</div>
-                <div className="payment_title">Amount</div>
-                <div className="payment_title">Status</div>
-                <div className="payment_title">date</div>
-                <div className="payment_title">action</div>
+          <div className="w-full overflow-x-auto">
+            <div className="min-w-[500px]">
+              <div className="flex bg-[#161d31] uppercase text-xs">
+                <div className="w-[25%] p-2">No</div>
+                <div className="w-[25%] p-2">Amount</div>
+                <div className="w-[25%] p-2">status</div>
+                <div className="w-[25%] p-2">date</div>
+                <div className="w-[25%] p-2">action</div>
               </div>
               {
                 <List
@@ -51,7 +51,7 @@ const PaymentRequest = () => {
                   height={350}
                   itemCount={100}
                   itemSize={35}
-                  // outerElementType={outerElementType}
+                  outerElementType={outerElementType}
                 >
                   {Row}
                 </List>

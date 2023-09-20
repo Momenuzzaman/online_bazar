@@ -21,6 +21,8 @@ const Orders = () => {
             <option value="15">15</option>
           </select>
           <input
+            onChange={(e) => setSearchValue(e.target.value)}
+            value={searchValue}
             className="px-4 input bg-bg_primary"
             type="text"
             placeholder="Search"
