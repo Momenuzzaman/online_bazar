@@ -77,7 +77,7 @@ const Orders = () => {
                   className="py-3 px-4 font-medium whitespace-nowrap"
                 >
                   <Link
-                    to={`/seller/dashboard/order/details/`}
+                    to={`/seller/dashboard/order/details/1`}
                     className="p-[6px] w-[30px] bg-green-500 rounded hover:shadow-lg hover:shadow-green-500/50 flex justify-center items-center"
                   >
                     <FaEye />

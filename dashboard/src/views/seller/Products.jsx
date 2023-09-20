@@ -107,7 +107,7 @@ const Products = () => {
                   >
                     <div className="flex justify-start items-center gap-4">
                       <Link
-                        to={`/seller/dashboard/edit-product`}
+                        to={`/seller/dashboard/edit-product/1`}
                         className="p-[6px] bg-yellow-500 rounded hover:shadow-lg hover:shadow-yellow-500/50"
                       >
                         <FaEdit />
