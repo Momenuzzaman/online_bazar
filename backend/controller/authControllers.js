@@ -1,7 +1,9 @@
 const adminModel = require("../models/adminModel");
+const sellerModel = require("../models/sellerModel");
 const { responseReturn } = require("../utils/response");
 const bcrypt = require("bcrypt");
 const { tokenCreate } = require("../utils/tokenCreate");
+const sellerCustomerModel = require("../models/chat/sellerCustomerModel");
 
 class authControllers {
   // admin login
@@ -36,11 +38,35 @@ class authControllers {
     }
   };
 
+  seller_register = async (req, res) => {
+    const { name, email, password } = req.body;
+    try {
+      const getUser = await sellerModel.findOne({ email });
+      if (getUser) {
+        responseReturn(res, 404, { error: "Email already exits" });
+      } else {
+        const seller = await sellerModel.create({
+          name,
+          email,
+          password: await bcrypt.hash(password, 10),
+          method: "manual",
+          shopInfo: {},
+        });
+        await sellerCustomerModel.create({
+          myId: seller.id,
+        });
+        responseReturn(res, 201, { message: "Register successful" });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // get user
   getUser = async (req, res) => {
-    const { id, roll } = req;
+    const { id, role } = req;
     try {
-      if (roll === "admin") {
+      if (role === "admin") {
         const user = await adminModel.findById(id);
         responseReturn(res, 200, { userInfo: user });
       } else {

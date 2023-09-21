@@ -1,13 +1,13 @@
 var jwt = require("jsonwebtoken");
 
-module.export.authMiddleware = async (req, res, next) => {
+module.exports.authMiddleware = async (req, res, next) => {
   const { accessToken } = req.cookies;
 
   if (!accessToken) {
-    res.status(409).json({ error: "Please login first." });
+    return res.status(409).json({ error: "Please login first." });
   } else {
     try {
-      const decodedToken = jwt.verify(
+      const decodedToken = await jwt.verify(
         accessToken,
         process.env.ACCESS_TOKEN_SECRET
       );
