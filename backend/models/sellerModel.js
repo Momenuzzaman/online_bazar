@@ -13,7 +13,7 @@ const sellerSchema = new Schema(
     password: {
       type: String,
       required: true,
-      selected: false,
+      select: false,
     },
     role: {
       type: String,
@@ -23,7 +23,7 @@ const sellerSchema = new Schema(
       type: String,
       default: "pending",
     },
-    payments: {
+    payment: {
       type: String,
       default: "inactive",
     },
@@ -41,6 +41,19 @@ const sellerSchema = new Schema(
     },
   },
   { timestamps: true }
+);
+
+sellerSchema.index(
+  {
+    name: "text",
+    email: "text",
+  },
+  {
+    weights: {
+      name: 5,
+      email: 4,
+    },
+  }
 );
 
 module.exports = model("sellers", sellerSchema);

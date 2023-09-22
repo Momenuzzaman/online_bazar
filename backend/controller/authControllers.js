@@ -39,26 +39,36 @@ class authControllers {
   };
 
   seller_register = async (req, res) => {
-    const { name, email, password } = req.body;
+    console.log(req.body);
+    const { email, name, password } = req.body;
     try {
-      const getUser = await sellerModel.findOne({ email });
-      if (getUser) {
-        responseReturn(res, 404, { error: "Email already exits" });
+      const getSeller = await sellerModel.findOne({ email });
+      console.log("seller :", getSeller);
+      if (getSeller) {
+        responseReturn(res, 403, { error: "User already registered" });
       } else {
         const seller = await sellerModel.create({
           name,
           email,
           password: await bcrypt.hash(password, 10),
           method: "manual",
-          shopInfo: {},
         });
+
         await sellerCustomerModel.create({
           myId: seller.id,
         });
-        responseReturn(res, 201, { message: "Register successful" });
+
+        const token = await tokenCreate({ id: seller.id, role: seller.role });
+        console.log(token);
+        res.cookie("accessToken", token, {
+          expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        });
+        console.log("Seller info", seller);
+        responseReturn(res, 201, { token, message: "register successful." });
       }
     } catch (error) {
       console.log(error);
+      responseReturn(res, 500, { error: "Internal server error." });
     }
   };
 
