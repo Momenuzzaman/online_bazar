@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineGithub, AiOutlineGooglePlus } from "react-icons/ai";
 import { CiTwitter } from "react-icons/ci";
 import { FiFacebook } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { PropagateLoader } from "react-spinners";
+
+// button loading
+import { overrideStyle } from "../../utils/utils";
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { messageClear, sellerLogin } from "../../store/Reducers/authReducer";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const { loader, errorMessage, successMessage } = useSelector(
+    (state) => state.auth
+  );
+
+  const navigate = useNavigate();
+
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -20,8 +37,21 @@ const Login = () => {
   const submit = (e) => {
     e.preventDefault();
 
-    console.log(state);
+    dispatch(sellerLogin(state));
   };
+
+  // clear notification
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage);
+      dispatch(messageClear());
+    }
+    if (successMessage) {
+      toast.success(successMessage);
+      dispatch(messageClear());
+      navigate("/");
+    }
+  }, [errorMessage, successMessage]);
 
   return (
     <div className="min-w-screen min-h-screen bg-[#161d31] flex justify-center items-center">
@@ -59,8 +89,15 @@ const Login = () => {
               />
             </div>
 
-            <button className="bg-blue-500 w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3">
-              Sign in
+            <button
+              disabled={loader ? true : false}
+              className="bg-blue-500 w-full hover:shadow-blue-500/20 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3 mt-3"
+            >
+              {loader ? (
+                <PropagateLoader color="#fff" cssOverride={overrideStyle} />
+              ) : (
+                "Sign up"
+              )}
             </button>
             <div className="flex items-center mb-3 gap-3 justify-center">
               <p>

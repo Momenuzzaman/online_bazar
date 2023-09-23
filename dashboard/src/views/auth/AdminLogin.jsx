@@ -3,8 +3,11 @@ import { PropagateLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
-import logo from "../../../public/images/logo_transparent.png";
+import logo from "../../images/logo_transparent.png";
 import { adminLogin, messageClear } from "../../store/Reducers/authReducer";
+
+// button loading
+import { overrideStyle } from "../../utils/utils";
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { loader, errorMessage, successMessage } = useSelector(
@@ -27,15 +30,6 @@ const AdminLogin = () => {
     e.preventDefault();
 
     dispatch(adminLogin(state));
-  };
-
-  //  login button loading style
-  const overrideStyle = {
-    display: "flex",
-    margin: "0 auto",
-    height: "24px",
-    justifyContent: "center",
-    alignItems: "center",
   };
 
   // clear notification
