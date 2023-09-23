@@ -37,7 +37,7 @@ class authControllers {
       responseReturn(res, 500, { error: error.message });
     }
   };
-
+  // seller register or create account
   seller_register = async (req, res) => {
     console.log(req.body);
     const { email, name, password } = req.body;
@@ -69,6 +69,38 @@ class authControllers {
     } catch (error) {
       console.log(error);
       responseReturn(res, 500, { error: "Internal server error." });
+    }
+  };
+
+  // seller Login
+  seller_login = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+      // find admin
+      const seller = await sellerModel.findOne({ email }).select("+password");
+      if (seller) {
+        // matching admin password
+        const match = await bcrypt.compare(password, seller.password);
+        if (match) {
+          // admin and password match then create token
+          const token = await tokenCreate({
+            id: seller.id,
+            role: seller.role,
+          });
+          // token set cookies
+          res.cookie("accessToken", token, {
+            expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+          });
+          responseReturn(res, 200, { token, message: "Login successful" });
+        } else {
+          responseReturn(res, 400, { error: "Your password is incorrect." });
+        }
+      } else {
+        responseReturn(res, 400, { error: "Email not found." });
+      }
+    } catch (error) {
+      responseReturn(res, 500, { error: error.message });
     }
   };
 

@@ -10,6 +10,9 @@ router.post("/admin-login", authControllers.admin_login);
 // seller register
 router.post("/seller-register", authControllers.seller_register);
 
+// seller Login
+router.post("/seller-login", authControllers.seller_login);
+
 // get user
 router.get("/get-user", authMiddleware, authControllers.getUser);
 
